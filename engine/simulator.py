@@ -35,16 +35,4 @@ class Simulation(object):
         return leg_power
 
 
-def test():
-    arjan = Racer()
-    route = Route()
-    route.add_segment(Segment(grade=10))
-    sim = Simulation(arjan, route)
-    power = sim.step()
-    terminal_velocity = sim.get_terminal_velocity()
-
-if __name__ == '__main__':
-    test()
-
-
 
