@@ -10,12 +10,12 @@ class Simulation(object):
         self.air_density = air_density
         self.state = 0
 
-    def get_terminal_velocity(self, velocity=.1):
+    def get_terminal_velocity(self, velocity=.1, effort=1.):
         acceleration_force = 2
-        eps = 1e-6
+        eps = 1e-3
         while acceleration_force > eps:
             required_power = self.step(velocity=velocity)
-            input_power = self.racer.ftp
+            input_power = self.racer.ftp * effort
             acceleration_force = input_power - required_power
             accelaration = acceleration_force / (self.racer.weight * 9.8067)
             velocity += accelaration
